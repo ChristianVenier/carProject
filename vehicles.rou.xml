@@ -1,0 +1,87 @@
+<routes>
+    <!-- Definizione dei Tipi di Veicoli -->
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.89" accel="2.6" decel="4.5" sigma="0.5"/>
+    <vType id="motorcycle" vClass="motorcycle" length="2.2" maxSpeed="13.89" accel="4.0" decel="5.0" sigma="0.8"/>
+    <vType id="truck" vClass="truck" length="10.0" maxSpeed="11.11" accel="1.5" decel="3.0" sigma="0.3"/>
+    <vType id="delivery" vClass="delivery" length="7.0" maxSpeed="12.50" accel="2.0" decel="3.5" sigma="0.4"/>
+    <vType id="bus" vClass="bus" length="12.0" maxSpeed="10.00" accel="1.2" decel="2.8" sigma="0.2"/>
+
+    <!-- Flussi di Traffico -->
+    <!-- Nord-Sud (Strada Principale) -->
+    <!-- Ore di Punta (7:00-13:00, 25200-46800 secondi) -->
+    <flow id="NS_peak_car" type="car" from="-E7" to="E8" begin="25200" end="46800" probability="0.05"/>
+    <flow id="NS_peak_moto" type="motorcycle" from="-E7" to="E8" begin="25200" end="46800" probability="0.02"/>
+    <flow id="NS_peak_truck" type="truck" from="-E7" to="E8" begin="25200" end="46800" probability="0.01"/>
+    <flow id="NS_peak_delivery" type="delivery" from="-E7" to="E8" begin="25200" end="46800" probability="0.01"/>
+    <flow id="NS_peak_bus" type="bus" from="-E7" to="E8" begin="25200" end="46800" probability="0.005"/>
+
+    <flow id="SN_peak_car" type="car" from="-E8" to="E7" begin="25200" end="46800" probability="0.05"/>
+    <flow id="SN_peak_moto" type="motorcycle" from="-E8" to="E7" begin="25200" end="46800" probability="0.02"/>
+    <flow id="SN_peak_truck" type="truck" from="-E8" to="E7" begin="25200" end="46800" probability="0.01"/>
+    <flow id="SN_peak_delivery" type="delivery" from="-E8" to="E7" begin="25200" end="46800" probability="0.01"/>
+    <flow id="SN_peak_bus" type="bus" from="-E8" to="E7" begin="25200" end="46800" probability="0.005"/>
+
+    <!-- Fuori Punta (0:00-7:00 e 13:00-24:00) -->
+    <flow id="NS_offpeak_car_1" type="car" from="-E7" to="E8" begin="0" end="25200" probability="0.02"/>
+    <flow id="NS_offpeak_moto_1" type="motorcycle" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/>
+    <flow id="NS_offpeak_truck_1" type="truck" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/>
+    <flow id="NS_offpeak_delivery_1" type="delivery" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/>
+    <flow id="NS_offpeak_bus_1" type="bus" from="-E7" to="E8" begin="0" end="25200" probability="0.002"/>
+
+    <flow id="NS_offpeak_car_2" type="car" from="-E7" to="E8" begin="46800" end="86400" probability="0.02"/>
+    <flow id="NS_offpeak_moto_2" type="motorcycle" from="-E7" to="E8" begin="46800" end="86400" probability="0.01"/>
+    <flow id="NS_offpeak_truck_2" type="truck" from="-E7" to="E8" begin="46800" end="86400" probability="0.005"/>
+    <flow id="NS_offpeak_delivery_2" type="delivery" from="-E7" to="E8" begin="46800" end="86400" probability="0.005"/>
+    <flow id="NS_offpeak_bus_2" type="bus" from="-E7" to="E8" begin="46800" end="86400" probability="0.002"/>
+
+    <flow id="SN_offpeak_car_1" type="car" from="-E8" to="E7" begin="0" end="25200" probability="0.02"/>
+    <flow id="SN_offpeak_moto_1" type="motorcycle" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/>
+    <flow id="SN_offpeak_truck_1" type="truck" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/>
+    <flow id="SN_offpeak_delivery_1" type="delivery" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/>
+    <flow id="SN_offpeak_bus_1" type="bus" from="-E8" to="E7" begin="0" end="25200" probability="0.002"/>
+
+    <flow id="SN_offpeak_car_2" type="car" from="-E8" to="E7" begin="46800" end="86400" probability="0.02"/>
+    <flow id="SN_offpeak_moto_2" type="motorcycle" from="-E8" to="E7" begin="46800" end="86400" probability="0.01"/>
+    <flow id="SN_offpeak_truck_2" type="truck" from="-E8" to="E7" begin="46800" end="86400" probability="0.005"/>
+    <flow id="SN_offpeak_delivery_2" type="delivery" from="-E8" to="E7" begin="46800" end="86400" probability="0.005"/>
+    <flow id="SN_offpeak_bus_2" type="bus" from="-E8" to="E7" begin="46800" end="86400" probability="0.002"/>
+
+    <!-- Est-Ovest (Strada Secondaria) -->
+    <!-- Ore di Punta (7:00-13:00) -->
+    <flow id="EW_peak_car" type="car" from="-E5" to="E6" begin="25200" end="46800" probability="0.03"/>
+    <flow id="EW_peak_moto" type="motorcycle" from="-E5" to="E6" begin="25200" end="46800" probability="0.01"/>
+    <flow id="EW_peak_truck" type="truck" from="-E5" to="E6" begin="25200" end="46800" probability="0.005"/>
+    <flow id="EW_peak_delivery" type="delivery" from="-E5" to="E6" begin="25200" end="46800" probability="0.005"/>
+    <flow id="EW_peak_bus" type="bus" from="-E5" to="E6" begin="25200" end="46800" probability="0.002"/>
+
+    <flow id="WE_peak_car" type="car" from="-E6" to="E5" begin="25200" end="46800" probability="0.03"/>
+    <flow id="WE_peak_moto" type="motorcycle" from="-E6" to="E5" begin="25200" end="46800" probability="0.01"/>
+    <flow id="WE_peak_truck" type="truck" from="-E6" to="E5" begin="25200" end="46800" probability="0.005"/>
+    <flow id="WE_peak_delivery" type="delivery" from="-E6" to="E5" begin="25200" end="46800" probability="0.005"/>
+    <flow id="WE_peak_bus" type="bus" from="-E6" to="E5" begin="25200" end="46800" probability="0.002"/>
+
+    <!-- Fuori Punta -->
+    <flow id="EW_offpeak_car_1" type="car" from="-E5" to="E6" begin="0" end="25200" probability="0.015"/>
+    <flow id="EW_offpeak_moto_1" type="motorcycle" from="-E5" to="E6" begin="0" end="25200" probability="0.005"/>
+    <flow id="EW_offpeak_truck_1" type="truck" from="-E5" to="E6" begin="0" end="25200" probability="0.002"/>
+    <flow id="EW_offpeak_delivery_1" type="delivery" from="-E5" to="E6" begin="0" end="25200" probability="0.002"/>
+    <flow id="EW_offpeak_bus_1" type="bus" from="-E5" to="E6" begin="0" end="25200" probability="0.001"/>
+
+    <flow id="EW_offpeak_car_2" type="car" from="-E5" to="E6" begin="46800" end="86400" probability="0.015"/>
+    <flow id="EW_offpeak_moto_2" type="motorcycle" from="-E5" to="E6" begin="46800" end="86400" probability="0.005"/>
+    <flow id="EW_offpeak_truck_2" type="truck" from="-E5" to="E6" begin="46800" end="86400" probability="0.002"/>
+    <flow id="EW_offpeak_delivery_2" type="delivery" from="-E5" to="E6" begin="46800" end="86400" probability="0.002"/>
+    <flow id="EW_offpeak_bus_2" type="bus" from="-E5" to="E6" begin="46800" end="86400" probability="0.001"/>
+
+    <flow id="WE_offpeak_car_1" type="car" from="-E6" to="E5" begin="0" end="25200" probability="0.015"/>
+    <flow id="WE_offpeak_moto_1" type="motorcycle" from="-E6" to="E5" begin="0" end="25200" probability="0.005"/>
+    <flow id="WE_offpeak_truck_1" type="truck" from="-E6" to="E5" begin="0" end="25200" probability="0.002"/>
+    <flow id="WE_offpeak_delivery_1" type="delivery" from="-E6" to="E5" begin="0" end="25200" probability="0.002"/>
+    <flow id="WE_offpeak_bus_1" type="bus" from="-E6" to="E5" begin="0" end="25200" probability="0.001"/>
+
+    <flow id="WE_offpeak_car_2" type="car" from="-E6" to="E5" begin="46800" end="86400" probability="0.015"/>
+    <flow id="WE_offpeak_moto_2" type="motorcycle" from="-E6" to="E5" begin="46800" end="86400" probability="0.005"/>
+    <flow id="WE_offpeak_truck_2" type="truck" from="-E6" to="E5" begin="46800" end="86400" probability="0.002"/>
+    <flow id="WE_offpeak_delivery_2" type="delivery" from="-E6" to="E5" begin="46800" end="86400" probability="0.002"/>
+    <flow id="WE_offpeak_bus_2" type="bus" from="-E6" to="E5" begin="46800" end="86400" probability="0.001"/>
+</routes>
