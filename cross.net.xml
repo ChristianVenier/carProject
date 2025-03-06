@@ -26,10 +26,11 @@
 </neteditConfiguration>
 -->
 
-<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+<net version="1.22.0" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
 
     <location netOffset="0.00,0.00" convBoundary="-100.00,0.00,100.00,200.00" origBoundary="10000000000.00,10000000000.00,-10000000000.00,-10000000000.00" projParameter="!"/>
 
+    <!-- Edge Interni -->
     <edge id=":J4_0" function="internal">
         <lane id=":J4_0_0" index="0" speed="6.51" length="9.03" shape="-4.80,110.40 -5.15,107.95 -6.20,106.20 -7.95,105.15 -10.40,104.80"/>
     </edge>
@@ -83,69 +84,75 @@
         <lane id=":J4_19_0" index="0" speed="9.26" length="14.34" shape="-5.44,99.11 -5.15,99.15 -1.40,101.40 0.85,105.15 1.60,110.40"/>
     </edge>
 
-    <edge id="-E5" from="J3" to="J4" priority="-1">
+    <!-- Edge Esterni -->
+    <edge id="-E5" from="J3" to="J4" priority="2" name="East-West Road">
         <lane id="-E5_0" index="0" speed="13.89" length="89.60" shape="100.00,104.80 10.40,104.80"/>
         <lane id="-E5_1" index="1" speed="13.89" length="89.60" shape="100.00,101.60 10.40,101.60"/>
     </edge>
-    <edge id="-E6" from="J2" to="J4" priority="-1">
+    <edge id="-E6" from="J2" to="J4" priority="2" name="West-East Road">
         <lane id="-E6_0" index="0" speed="13.89" length="89.60" shape="-100.00,95.20 -10.40,95.20"/>
         <lane id="-E6_1" index="1" speed="13.89" length="89.60" shape="-100.00,98.40 -10.40,98.40"/>
     </edge>
-    <edge id="-E7" from="J0" to="J4" priority="-1">
+    <edge id="-E7" from="J0" to="J4" priority="3" name="North-South Main Road">
         <lane id="-E7_0" index="0" speed="13.89" length="89.60" shape="-4.80,200.00 -4.80,110.40"/>
         <lane id="-E7_1" index="1" speed="13.89" length="89.60" shape="-1.60,200.00 -1.60,110.40"/>
     </edge>
-    <edge id="-E8" from="J1" to="J4" priority="-1">
+    <edge id="-E8" from="J1" to="J4" priority="3" name="South-North Main Road">
         <lane id="-E8_0" index="0" speed="13.89" length="89.60" shape="4.80,0.00 4.80,89.60"/>
         <lane id="-E8_1" index="1" speed="13.89" length="89.60" shape="1.60,0.00 1.60,89.60"/>
     </edge>
-    <edge id="E5" from="J4" to="J3" priority="-1">
+    <edge id="E5" from="J4" to="J3" priority="2" name="West-East Road">
         <lane id="E5_0" index="0" speed="13.89" length="89.60" shape="10.40,95.20 100.00,95.20"/>
         <lane id="E5_1" index="1" speed="13.89" length="89.60" shape="10.40,98.40 100.00,98.40"/>
     </edge>
-    <edge id="E6" from="J4" to="J2" priority="-1">
+    <edge id="E6" from="J4" to="J2" priority="2" name="East-West Road">
         <lane id="E6_0" index="0" speed="13.89" length="89.60" shape="-10.40,104.80 -100.00,104.80"/>
         <lane id="E6_1" index="1" speed="13.89" length="89.60" shape="-10.40,101.60 -100.00,101.60"/>
     </edge>
-    <edge id="E7" from="J4" to="J0" priority="-1">
+    <edge id="E7" from="J4" to="J0" priority="3" name="South-North Main Road">
         <lane id="E7_0" index="0" speed="13.89" length="89.60" shape="4.80,110.40 4.80,200.00"/>
         <lane id="E7_1" index="1" speed="13.89" length="89.60" shape="1.60,110.40 1.60,200.00"/>
     </edge>
-    <edge id="E8" from="J4" to="J1" priority="-1">
+    <edge id="E8" from="J4" to="J1" priority="3" name="North-South Main Road">
         <lane id="E8_0" index="0" speed="13.89" length="89.60" shape="-4.80,89.60 -4.80,0.00"/>
         <lane id="E8_1" index="1" speed="13.89" length="89.60" shape="-1.60,89.60 -1.60,0.00"/>
     </edge>
-    
-    <!-- Semafori Attuati -->
+
+    <!-- Semafori Attuati Ottimizzati (Solo Veicoli) -->
     <tlLogic id="light" type="actuated" programID="0" offset="0">
+        <param key="detector-gap" value="2.0"/> <!-- Tempo minimo tra rilevamenti per estendere il verde -->
+        <param key="max-gap" value="5.0"/> <!-- Tempo massimo senza veicoli prima di cambiare fase -->
         <!-- Fase 1: Verde NS (dritto e destra) -->
-        <phase duration="40" minDur="30" maxDur="70" state="GGGgrrrrGGGgrrrr"/>
-        <phase duration="5" minDur="5" maxDur="5" state="YYYYrrrrYYYYrrrr"/>
-        <!-- Fase 2: Verde NS sinistra -->
-        <phase duration="10" minDur="5" maxDur="20" state="GrrGrrrrGrrGrrrr"/>
-        <phase duration="5" minDur="5" maxDur="5" state="YrrYrrrrYrrYrrrr"/>
-        <!-- Fase 3: Verde EW (dritto e destra) -->
-        <phase duration="15" minDur="10" maxDur="25" state="rrrrGGGgrrrrGGGG"/>
-        <phase duration="5" minDur="5" maxDur="5" state="rrrrYYYYrrrrYYYY"/>
-        <!-- Fase 4: Verde EW sinistra -->
-        <phase duration="10" minDur="5" maxDur="15" state="rrrGrGrrrrrGrGrr"/>
-        <phase duration="5" minDur="5" maxDur="5" state="rrrYrYrrrrrYrYrr"/>
-    </tlLogic>
-    <tlLogic id="light" type="actuated" programID="1" offset="0">
-        <!-- Fase 1: Verde NS (dritto e destra) -->
-        <phase duration="50" minDur="40" maxDur="80" state="GGGgrrrrGGGgrrrr"/>
+        <phase duration="40" minDur="25" maxDur="80" state="GGGgrrrrGGGgrrrr"/>
         <phase duration="5" minDur="5" maxDur="5" state="YYYYrrrrYYYYrrrr"/>
         <!-- Fase 2: Verde NS sinistra -->
         <phase duration="15" minDur="10" maxDur="25" state="GrrGrrrrGrrGrrrr"/>
         <phase duration="5" minDur="5" maxDur="5" state="YrrYrrrrYrrYrrrr"/>
         <!-- Fase 3: Verde EW (dritto e destra) -->
-        <phase duration="15" minDur="10" maxDur="25" state="rrrrGGGgrrrrGGGG"/>
+        <phase duration="15" minDur="10" maxDur="20" state="rrrrGGGgrrrrGGGG"/>
         <phase duration="5" minDur="5" maxDur="5" state="rrrrYYYYrrrrYYYY"/>
         <!-- Fase 4: Verde EW sinistra -->
-        <phase duration="10" minDur="5" maxDur="15" state="rrrGrGrrrrrGrGrr"/>
+        <phase duration="10" minDur="5" maxDur="20" state="rrrGrGrrrrrGrGrr"/>
+        <phase duration="5" minDur="5" maxDur="5" state="rrrYrYrrrrrYrYrr"/>
+    </tlLogic>
+    <tlLogic id="light" type="actuated" programID="1" offset="0">
+        <param key="detector-gap" value="2.0"/>
+        <param key="max-gap" value="5.0"/>
+        <!-- Fase 1: Verde NS (dritto e destra) -->
+        <phase duration="50" minDur="35" maxDur="90" state="GGGgrrrrGGGgrrrr"/>
+        <phase duration="5" minDur="5" maxDur="5" state="YYYYrrrrYYYYrrrr"/>
+        <!-- Fase 2: Verde NS sinistra -->
+        <phase duration="20" minDur="15" maxDur="30" state="GrrGrrrrGrrGrrrr"/>
+        <phase duration="5" minDur="5" maxDur="5" state="YrrYrrrrYrrYrrrr"/>
+        <!-- Fase 3: Verde EW (dritto e destra) -->
+        <phase duration="15" minDur="10" maxDur="20" state="rrrrGGGgrrrrGGGG"/>
+        <phase duration="5" minDur="5" maxDur="5" state="rrrrYYYYrrrrYYYY"/>
+        <!-- Fase 4: Verde EW sinistra -->
+        <phase duration="15" minDur="10" maxDur="25" state="rrrGrGrrrrrGrGrr"/>
         <phase duration="5" minDur="5" maxDur="5" state="rrrYrYrrrrrYrYrr"/>
     </tlLogic>
 
+    <!-- Junctions -->
     <junction id="J0" type="dead_end" x="0.00" y="200.00" incLanes="E7_0 E7_1" intLanes="" shape="0.00,200.00 6.40,200.00 0.00,200.00"/>
     <junction id="J1" type="dead_end" x="0.00" y="0.00" incLanes="E8_0 E8_1" intLanes="" shape="0.00,0.00 -6.40,0.00 0.00,0.00"/>
     <junction id="J2" type="dead_end" x="-100.00" y="100.00" incLanes="E6_0 E6_1" intLanes="" shape="-100.00,100.00 -100.00,106.40 -100.00,100.00"/>
@@ -174,6 +181,7 @@
     <junction id=":J4_18_0" type="internal" x="0.89" y="94.56" incLanes=":J4_11_0 -E7_0 -E7_1" intLanes=":J4_0_0 :J4_1_0 :J4_1_1 :J4_5_0 :J4_5_1 :J4_7_0 :J4_13_0 :J4_13_1 :J4_15_0"/>
     <junction id=":J4_19_0" type="internal" x="-5.44" y="99.11" incLanes=":J4_15_0 -E5_0 -E5_1" intLanes=":J4_1_0 :J4_1_1 :J4_3_0 :J4_4_0 :J4_5_0 :J4_5_1 :J4_9_0 :J4_9_1 :J4_11_0"/>
 
+    <!-- Connessioni -->
     <connection from="-E5" to="E7" fromLane="0" toLane="0" via=":J4_4_0" tl="light" linkIndex="4" dir="r" state="o"/>
     <connection from="-E5" to="E6" fromLane="0" toLane="0" via=":J4_5_0" tl="light" linkIndex="5" dir="s" state="o"/>
     <connection from="-E5" to="E6" fromLane="1" toLane="1" via=":J4_5_1" tl="light" linkIndex="6" dir="s" state="o"/>
@@ -211,5 +219,4 @@
     <connection from=":J4_13" to="E5" fromLane="1" toLane="1" dir="s" state="M"/>
     <connection from=":J4_15" to="E7" fromLane="0" toLane="1" via=":J4_19_0" dir="l" state="m"/>
     <connection from=":J4_19" to="E7" fromLane="0" toLane="1" dir="l" state="M"/>
-
 </net>

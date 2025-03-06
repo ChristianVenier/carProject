@@ -9,255 +9,257 @@
         <!-- Argomentazione: Autisti di trasporti pesanti sono cauti (sigma 0.3) per la mole del veicolo, con accelerazione lenta. -->
     <vType id="delivery" vClass="delivery" length="7.0" maxSpeed="12.50" accel="2.0" decel="3.5" sigma="0.4" color="green"/>
         <!-- Argomentazione: Corrieri hanno un comportamento intermedio (sigma 0.4), con accelerazione moderata per consegne rapide. -->
-    <vType id="bus" vClass="bus" length="12.0" maxSpeed="10.00" accel="1.2" decel="2.8" sigma="0.2" color="orange"/>
+    <vType id="bus" vClass="bus" length="12.0" maxSpeed="10.00" accel="1.2" decel="2.8" sigma="0.2" color="orange">
+    <param key="imgFile" value="images\bus.png"/>
+    </vType>
         <!-- Argomentazione: Autisti di autobus sono molto prudenti (sigma 0.2) per i passeggeri, con accelerazione lenta e fermate frequenti. -->
 
     <!-- Flussi di Traffico -->
     <!-- Nord-Sud (Strada Principale) -->
     <!-- Risveglio (0:00-7:00, 0-25200 secondi) -->
-    <flow id="NS_wakeup_car" type="car" from="-E7" to="E8" begin="0" end="25200" probability="0.03"/> <!-- Dritto -->
-    <flow id="NS_wakeup_car_left" type="car" from="-E7" to="E5" begin="0" end="25200" probability="0.015"/> <!-- Sinistra -->
-    <flow id="NS_wakeup_car_right" type="car" from="-E7" to="E6" begin="0" end="25200" probability="0.015"/> <!-- Destra -->
-    <flow id="NS_wakeup_moto" type="motorcycle" from="-E7" to="E8" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
-    <flow id="NS_wakeup_moto_left" type="motorcycle" from="-E7" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="NS_wakeup_moto_right" type="motorcycle" from="-E7" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Destra -->
-    <flow id="NS_wakeup_truck" type="truck" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_wakeup_delivery" type="delivery" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_wakeup_bus" type="bus" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_wakeup_car" type="car" from="-E7" to="E8" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
+    <flow id="NS_wakeup_car_left" type="car" from="-E7" to="E5" begin="0" end="25200" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="NS_wakeup_car_right" type="car" from="-E7" to="E6" begin="0" end="25200" probability="0.0075"/> <!-- Destra -->
+    <flow id="NS_wakeup_moto" type="motorcycle" from="-E7" to="E8" begin="0" end="25200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="NS_wakeup_moto_left" type="motorcycle" from="-E7" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="NS_wakeup_moto_right" type="motorcycle" from="-E7" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Destra -->
+    <flow id="NS_wakeup_truck" type="truck" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_wakeup_delivery" type="delivery" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_wakeup_bus" type="bus" from="-E7" to="E8" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
 
     <!-- Sud-Nord (Strada Principale) -->
     <!-- Risveglio (0:00-7:00, 0-25200 secondi) -->
-    <flow id="SN_wakeup_car" type="car" from="-E8" to="E7" begin="0" end="25200" probability="0.03"/> <!-- Dritto -->
-    <flow id="SN_wakeup_car_left" type="car" from="-E8" to="E6" begin="0" end="25200" probability="0.015"/> <!-- Sinistra -->
-    <flow id="SN_wakeup_car_right" type="car" from="-E8" to="E5" begin="0" end="25200" probability="0.015"/> <!-- Destra -->
-    <flow id="SN_wakeup_moto" type="motorcycle" from="-E8" to="E7" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
-    <flow id="SN_wakeup_moto_left" type="motorcycle" from="-E8" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="SN_wakeup_moto_right" type="motorcycle" from="-E8" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Destra -->
-    <flow id="SN_wakeup_truck" type="truck" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_wakeup_delivery" type="delivery" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_wakeup_bus" type="bus" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_wakeup_car" type="car" from="-E8" to="E7" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
+    <flow id="SN_wakeup_car_left" type="car" from="-E8" to="E6" begin="0" end="25200" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="SN_wakeup_car_right" type="car" from="-E8" to="E5" begin="0" end="25200" probability="0.0075"/> <!-- Destra -->
+    <flow id="SN_wakeup_moto" type="motorcycle" from="-E8" to="E7" begin="0" end="25200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="SN_wakeup_moto_left" type="motorcycle" from="-E8" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="SN_wakeup_moto_right" type="motorcycle" from="-E8" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Destra -->
+    <flow id="SN_wakeup_truck" type="truck" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_wakeup_delivery" type="delivery" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_wakeup_bus" type="bus" from="-E8" to="E7" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
 
     <!-- Est-Ovest (Strada Secondaria) -->
     <!-- Risveglio (0:00-7:00, 0-25200 secondi) -->
-    <flow id="EW_wakeup_car" type="car" from="-E5" to="E6" begin="0" end="25200" probability="0.02"/> <!-- Dritto -->
-    <flow id="EW_wakeup_car_left" type="car" from="-E5" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="EW_wakeup_car_right" type="car" from="-E5" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Destra -->
-    <flow id="EW_wakeup_moto" type="motorcycle" from="-E5" to="E6" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="EW_wakeup_moto_left" type="motorcycle" from="-E5" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
-    <flow id="EW_wakeup_moto_right" type="motorcycle" from="-E5" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
-    <flow id="EW_wakeup_truck" type="truck" from="-E5" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_wakeup_delivery" type="delivery" from="-E5" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_wakeup_bus" type="bus" from="-E5" to="E6" begin="0" end="25200" probability="0.003"/> <!-- Dritto -->
+    <flow id="EW_wakeup_car" type="car" from="-E5" to="E6" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
+    <flow id="EW_wakeup_car_left" type="car" from="-E5" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="EW_wakeup_car_right" type="car" from="-E5" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
+    <flow id="EW_wakeup_moto" type="motorcycle" from="-E5" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_wakeup_moto_left" type="motorcycle" from="-E5" to="E8" begin="0" end="25200" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="EW_wakeup_moto_right" type="motorcycle" from="-E5" to="E7" begin="0" end="25200" probability="0.0025"/> <!-- Destra -->
+    <flow id="EW_wakeup_truck" type="truck" from="-E5" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_wakeup_delivery" type="delivery" from="-E5" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_wakeup_bus" type="bus" from="-E5" to="E6" begin="0" end="25200" probability="0.0015"/> <!-- Dritto -->
 
     <!-- Ovest-Est (Strada Secondaria) -->
     <!-- Risveglio (0:00-7:00, 0-25200 secondi) -->
-    <flow id="WE_wakeup_car" type="car" from="-E6" to="E5" begin="0" end="25200" probability="0.02"/> <!-- Dritto -->
-    <flow id="WE_wakeup_car_left" type="car" from="-E6" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="WE_wakeup_car_right" type="car" from="-E6" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Destra -->
-    <flow id="WE_wakeup_moto" type="motorcycle" from="-E6" to="E5" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="WE_wakeup_moto_left" type="motorcycle" from="-E6" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
-    <flow id="WE_wakeup_moto_right" type="motorcycle" from="-E6" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
-    <flow id="WE_wakeup_truck" type="truck" from="-E6" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_wakeup_delivery" type="delivery" from="-E6" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_wakeup_bus" type="bus" from="-E6" to="E5" begin="0" end="25200" probability="0.003"/> <!-- Dritto -->
+    <flow id="WE_wakeup_car" type="car" from="-E6" to="E5" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
+    <flow id="WE_wakeup_car_left" type="car" from="-E6" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="WE_wakeup_car_right" type="car" from="-E6" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
+    <flow id="WE_wakeup_moto" type="motorcycle" from="-E6" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_wakeup_moto_left" type="motorcycle" from="-E6" to="E7" begin="0" end="25200" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="WE_wakeup_moto_right" type="motorcycle" from="-E6" to="E8" begin="0" end="25200" probability="0.0025"/> <!-- Destra -->
+    <flow id="WE_wakeup_truck" type="truck" from="-E6" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_wakeup_delivery" type="delivery" from="-E6" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_wakeup_bus" type="bus" from="-E6" to="E5" begin="0" end="25200" probability="0.0015"/> <!-- Dritto -->
 
     <!-- Ore di Punta Mattutina (7:00-9:00, 25200-32400 secondi) -->
-    <flow id="NS_morning_car" type="car" from="-E7" to="E8" begin="25200" end="32400" probability="0.08"/> <!-- Dritto -->
-    <flow id="NS_morning_car_left" type="car" from="-E7" to="E5" begin="25200" end="32400" probability="0.04"/> <!-- Sinistra -->
-    <flow id="NS_morning_car_right" type="car" from="-E7" to="E6" begin="25200" end="32400" probability="0.04"/> <!-- Destra -->
-    <flow id="NS_morning_moto" type="motorcycle" from="-E7" to="E8" begin="25200" end="32400" probability="0.04"/> <!-- Dritto -->
-    <flow id="NS_morning_moto_left" type="motorcycle" from="-E7" to="E5" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
-    <flow id="NS_morning_moto_right" type="motorcycle" from="-E7" to="E6" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
-    <flow id="NS_morning_truck" type="truck" from="-E7" to="E8" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="NS_morning_delivery" type="delivery" from="-E7" to="E8" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="NS_morning_bus" type="bus" from="-E7" to="E8" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
+    <flow id="NS_morning_car" type="car" from="-E7" to="E8" begin="25200" end="32400" probability="0.04"/> <!-- Dritto -->
+    <flow id="NS_morning_car_left" type="car" from="-E7" to="E5" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
+    <flow id="NS_morning_car_right" type="car" from="-E7" to="E6" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
+    <flow id="NS_morning_moto" type="motorcycle" from="-E7" to="E8" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
+    <flow id="NS_morning_moto_left" type="motorcycle" from="-E7" to="E5" begin="25200" end="32400" probability="0.01"/> <!-- Sinistra -->
+    <flow id="NS_morning_moto_right" type="motorcycle" from="-E7" to="E6" begin="25200" end="32400" probability="0.01"/> <!-- Destra -->
+    <flow id="NS_morning_truck" type="truck" from="-E7" to="E8" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_morning_delivery" type="delivery" from="-E7" to="E8" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_morning_bus" type="bus" from="-E7" to="E8" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
 
-    <flow id="SN_morning_car" type="car" from="-E8" to="E7" begin="25200" end="32400" probability="0.08"/> <!-- Dritto -->
-    <flow id="SN_morning_car_left" type="car" from="-E8" to="E6" begin="25200" end="32400" probability="0.04"/> <!-- Sinistra -->
-    <flow id="SN_morning_car_right" type="car" from="-E8" to="E5" begin="25200" end="32400" probability="0.04"/> <!-- Destra -->
-    <flow id="SN_morning_moto" type="motorcycle" from="-E8" to="E7" begin="25200" end="32400" probability="0.04"/> <!-- Dritto -->
-    <flow id="SN_morning_moto_left" type="motorcycle" from="-E8" to="E6" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
-    <flow id="SN_morning_moto_right" type="motorcycle" from="-E8" to="E5" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
-    <flow id="SN_morning_truck" type="truck" from="-E8" to="E7" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="SN_morning_delivery" type="delivery" from="-E8" to="E7" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="SN_morning_bus" type="bus" from="-E8" to="E7" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
+    <flow id="SN_morning_car" type="car" from="-E8" to="E7" begin="25200" end="32400" probability="0.04"/> <!-- Dritto -->
+    <flow id="SN_morning_car_left" type="car" from="-E8" to="E6" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
+    <flow id="SN_morning_car_right" type="car" from="-E8" to="E5" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
+    <flow id="SN_morning_moto" type="motorcycle" from="-E8" to="E7" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
+    <flow id="SN_morning_moto_left" type="motorcycle" from="-E8" to="E6" begin="25200" end="32400" probability="0.01"/> <!-- Sinistra -->
+    <flow id="SN_morning_moto_right" type="motorcycle" from="-E8" to="E5" begin="25200" end="32400" probability="0.01"/> <!-- Destra -->
+    <flow id="SN_morning_truck" type="truck" from="-E8" to="E7" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_morning_delivery" type="delivery" from="-E8" to="E7" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_morning_bus" type="bus" from="-E8" to="E7" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
 
-    <flow id="EW_morning_car" type="car" from="-E5" to="E6" begin="25200" end="32400" probability="0.05"/> <!-- Dritto -->
-    <flow id="EW_morning_car_left" type="car" from="-E5" to="E8" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
-    <flow id="EW_morning_car_right" type="car" from="-E5" to="E7" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
-    <flow id="EW_morning_moto" type="motorcycle" from="-E5" to="E6" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="EW_morning_moto_left" type="motorcycle" from="-E5" to="E8" begin="25200" end="32400" probability="0.01"/> <!-- Sinistra -->
-    <flow id="EW_morning_moto_right" type="motorcycle" from="-E5" to="E7" begin="25200" end="32400" probability="0.01"/> <!-- Destra -->
-    <flow id="EW_morning_truck" type="truck" from="-E5" to="E6" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_morning_delivery" type="delivery" from="-E5" to="E6" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_morning_bus" type="bus" from="-E5" to="E6" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="EW_morning_car" type="car" from="-E5" to="E6" begin="25200" end="32400" probability="0.025"/> <!-- Dritto -->
+    <flow id="EW_morning_car_left" type="car" from="-E5" to="E8" begin="25200" end="32400" probability="0.0125"/> <!-- Sinistra -->
+    <flow id="EW_morning_car_right" type="car" from="-E5" to="E7" begin="25200" end="32400" probability="0.0125"/> <!-- Destra -->
+    <flow id="EW_morning_moto" type="motorcycle" from="-E5" to="E6" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="EW_morning_moto_left" type="motorcycle" from="-E5" to="E8" begin="25200" end="32400" probability="0.005"/> <!-- Sinistra -->
+    <flow id="EW_morning_moto_right" type="motorcycle" from="-E5" to="E7" begin="25200" end="32400" probability="0.005"/> <!-- Destra -->
+    <flow id="EW_morning_truck" type="truck" from="-E5" to="E6" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_morning_delivery" type="delivery" from="-E5" to="E6" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_morning_bus" type="bus" from="-E5" to="E6" begin="25200" end="32400" probability="0.005"/> <!-- Dritto -->
 
-    <flow id="WE_morning_car" type="car" from="-E6" to="E5" begin="25200" end="32400" probability="0.05"/> <!-- Dritto -->
-    <flow id="WE_morning_car_left" type="car" from="-E6" to="E7" begin="25200" end="32400" probability="0.02"/> <!-- Sinistra -->
-    <flow id="WE_morning_car_right" type="car" from="-E6" to="E8" begin="25200" end="32400" probability="0.02"/> <!-- Destra -->
-    <flow id="WE_morning_moto" type="motorcycle" from="-E6" to="E5" begin="25200" end="32400" probability="0.02"/> <!-- Dritto -->
-    <flow id="WE_morning_moto_left" type="motorcycle" from="-E6" to="E7" begin="25200" end="32400" probability="0.01"/> <!-- Sinistra -->
-    <flow id="WE_morning_moto_right" type="motorcycle" from="-E6" to="E8" begin="25200" end="32400" probability="0.01"/> <!-- Destra -->
-    <flow id="WE_morning_truck" type="truck" from="-E6" to="E5" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_morning_delivery" type="delivery" from="-E6" to="E5" begin="25200" end="32400" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_morning_bus" type="bus" from="-E6" to="E5" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="WE_morning_car" type="car" from="-E6" to="E5" begin="25200" end="32400" probability="0.025"/> <!-- Dritto -->
+    <flow id="WE_morning_car_left" type="car" from="-E6" to="E7" begin="25200" end="32400" probability="0.0125"/> <!-- Sinistra -->
+    <flow id="WE_morning_car_right" type="car" from="-E6" to="E8" begin="25200" end="32400" probability="0.0125"/> <!-- Destra -->
+    <flow id="WE_morning_moto" type="motorcycle" from="-E6" to="E5" begin="25200" end="32400" probability="0.01"/> <!-- Dritto -->
+    <flow id="WE_morning_moto_left" type="motorcycle" from="-E6" to="E7" begin="25200" end="32400" probability="0.005"/> <!-- Sinistra -->
+    <flow id="WE_morning_moto_right" type="motorcycle" from="-E6" to="E8" begin="25200" end="32400" probability="0.005"/> <!-- Destra -->
+    <flow id="WE_morning_truck" type="truck" from="-E6" to="E5" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_morning_delivery" type="delivery" from="-E6" to="E5" begin="25200" end="32400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_morning_bus" type="bus" from="-E6" to="E5" begin="25200" end="32400" probability="0.005"/> <!-- Dritto -->
 
     <!-- Ore di Punta Pomeridiana (9:00-13:00, 32400-46800 secondi) -->
-    <flow id="NS_afternoon_car" type="car" from="-E7" to="E8" begin="32400" end="46800" probability="0.06"/> <!-- Dritto -->
-    <flow id="NS_afternoon_car_left" type="car" from="-E7" to="E5" begin="32400" end="46800" probability="0.03"/> <!-- Sinistra -->
-    <flow id="NS_afternoon_car_right" type="car" from="-E7" to="E6" begin="32400" end="46800" probability="0.03"/> <!-- Destra -->
-    <flow id="NS_afternoon_moto" type="motorcycle" from="-E7" to="E8" begin="32400" end="46800" probability="0.03"/> <!-- Dritto -->
-    <flow id="NS_afternoon_moto_left" type="motorcycle" from="-E7" to="E5" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
-    <flow id="NS_afternoon_moto_right" type="motorcycle" from="-E7" to="E6" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
-    <flow id="NS_afternoon_truck" type="truck" from="-E7" to="E8" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="NS_afternoon_delivery" type="delivery" from="-E7" to="E8" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="NS_afternoon_bus" type="bus" from="-E7" to="E8" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_afternoon_car" type="car" from="-E7" to="E8" begin="32400" end="46800" probability="0.03"/> <!-- Dritto -->
+    <flow id="NS_afternoon_car_left" type="car" from="-E7" to="E5" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
+    <flow id="NS_afternoon_car_right" type="car" from="-E7" to="E6" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
+    <flow id="NS_afternoon_moto" type="motorcycle" from="-E7" to="E8" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
+    <flow id="NS_afternoon_moto_left" type="motorcycle" from="-E7" to="E5" begin="32400" end="46800" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="NS_afternoon_moto_right" type="motorcycle" from="-E7" to="E6" begin="32400" end="46800" probability="0.0075"/> <!-- Destra -->
+    <flow id="NS_afternoon_truck" type="truck" from="-E7" to="E8" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="NS_afternoon_delivery" type="delivery" from="-E7" to="E8" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="NS_afternoon_bus" type="bus" from="-E7" to="E8" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
 
-    <flow id="SN_afternoon_car" type="car" from="-E8" to="E7" begin="32400" end="46800" probability="0.06"/> <!-- Dritto -->
-    <flow id="SN_afternoon_car_left" type="car" from="-E8" to="E6" begin="32400" end="46800" probability="0.03"/> <!-- Sinistra -->
-    <flow id="SN_afternoon_car_right" type="car" from="-E8" to="E5" begin="32400" end="46800" probability="0.03"/> <!-- Destra -->
-    <flow id="SN_afternoon_moto" type="motorcycle" from="-E8" to="E7" begin="32400" end="46800" probability="0.03"/> <!-- Dritto -->
-    <flow id="SN_afternoon_moto_left" type="motorcycle" from="-E8" to="E6" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
-    <flow id="SN_afternoon_moto_right" type="motorcycle" from="-E8" to="E5" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
-    <flow id="SN_afternoon_truck" type="truck" from="-E8" to="E7" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="SN_afternoon_delivery" type="delivery" from="-E8" to="E7" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="SN_afternoon_bus" type="bus" from="-E8" to="E7" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_afternoon_car" type="car" from="-E8" to="E7" begin="32400" end="46800" probability="0.03"/> <!-- Dritto -->
+    <flow id="SN_afternoon_car_left" type="car" from="-E8" to="E6" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
+    <flow id="SN_afternoon_car_right" type="car" from="-E8" to="E5" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
+    <flow id="SN_afternoon_moto" type="motorcycle" from="-E8" to="E7" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
+    <flow id="SN_afternoon_moto_left" type="motorcycle" from="-E8" to="E6" begin="32400" end="46800" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="SN_afternoon_moto_right" type="motorcycle" from="-E8" to="E5" begin="32400" end="46800" probability="0.0075"/> <!-- Destra -->
+    <flow id="SN_afternoon_truck" type="truck" from="-E8" to="E7" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="SN_afternoon_delivery" type="delivery" from="-E8" to="E7" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="SN_afternoon_bus" type="bus" from="-E8" to="E7" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
 
-    <flow id="EW_afternoon_car" type="car" from="-E5" to="E6" begin="32400" end="46800" probability="0.04"/> <!-- Dritto -->
-    <flow id="EW_afternoon_car_left" type="car" from="-E5" to="E8" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
-    <flow id="EW_afternoon_car_right" type="car" from="-E5" to="E7" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
-    <flow id="EW_afternoon_moto" type="motorcycle" from="-E5" to="E6" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_afternoon_moto_left" type="motorcycle" from="-E5" to="E8" begin="32400" end="46800" probability="0.007"/> <!-- Sinistra -->
-    <flow id="EW_afternoon_moto_right" type="motorcycle" from="-E5" to="E7" begin="32400" end="46800" probability="0.007"/> <!-- Destra -->
-    <flow id="EW_afternoon_truck" type="truck" from="-E5" to="E6" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
-    <flow id="EW_afternoon_delivery" type="delivery" from="-E5" to="E6" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
-    <flow id="EW_afternoon_bus" type="bus" from="-E5" to="E6" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_afternoon_car" type="car" from="-E5" to="E6" begin="32400" end="46800" probability="0.02"/> <!-- Dritto -->
+    <flow id="EW_afternoon_car_left" type="car" from="-E5" to="E8" begin="32400" end="46800" probability="0.01"/> <!-- Sinistra -->
+    <flow id="EW_afternoon_car_right" type="car" from="-E5" to="E7" begin="32400" end="46800" probability="0.01"/> <!-- Destra -->
+    <flow id="EW_afternoon_moto" type="motorcycle" from="-E5" to="E6" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_afternoon_moto_left" type="motorcycle" from="-E5" to="E8" begin="32400" end="46800" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="EW_afternoon_moto_right" type="motorcycle" from="-E5" to="E7" begin="32400" end="46800" probability="0.0035"/> <!-- Destra -->
+    <flow id="EW_afternoon_truck" type="truck" from="-E5" to="E6" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_afternoon_delivery" type="delivery" from="-E5" to="E6" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_afternoon_bus" type="bus" from="-E5" to="E6" begin="32400" end="46800" probability="0.0025"/> <!-- Dritto -->
 
-    <flow id="WE_afternoon_car" type="car" from="-E6" to="E5" begin="32400" end="46800" probability="0.04"/> <!-- Dritto -->
-    <flow id="WE_afternoon_car_left" type="car" from="-E6" to="E7" begin="32400" end="46800" probability="0.015"/> <!-- Sinistra -->
-    <flow id="WE_afternoon_car_right" type="car" from="-E6" to="E8" begin="32400" end="46800" probability="0.015"/> <!-- Destra -->
-    <flow id="WE_afternoon_moto" type="motorcycle" from="-E6" to="E5" begin="32400" end="46800" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_afternoon_moto_left" type="motorcycle" from="-E6" to="E7" begin="32400" end="46800" probability="0.007"/> <!-- Sinistra -->
-    <flow id="WE_afternoon_moto_right" type="motorcycle" from="-E6" to="E8" begin="32400" end="46800" probability="0.007"/> <!-- Destra -->
-    <flow id="WE_afternoon_truck" type="truck" from="-E6" to="E5" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
-    <flow id="WE_afternoon_delivery" type="delivery" from="-E6" to="E5" begin="32400" end="46800" probability="0.01"/> <!-- Dritto -->
-    <flow id="WE_afternoon_bus" type="bus" from="-E6" to="E5" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_afternoon_car" type="car" from="-E6" to="E5" begin="32400" end="46800" probability="0.02"/> <!-- Dritto -->
+    <flow id="WE_afternoon_car_left" type="car" from="-E6" to="E7" begin="32400" end="46800" probability="0.01"/> <!-- Sinistra -->
+    <flow id="WE_afternoon_car_right" type="car" from="-E6" to="E8" begin="32400" end="46800" probability="0.01"/> <!-- Destra -->
+    <flow id="WE_afternoon_moto" type="motorcycle" from="-E6" to="E5" begin="32400" end="46800" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_afternoon_moto_left" type="motorcycle" from="-E6" to="E7" begin="32400" end="46800" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="WE_afternoon_moto_right" type="motorcycle" from="-E6" to="E8" begin="32400" end="46800" probability="0.0035"/> <!-- Destra -->
+    <flow id="WE_afternoon_truck" type="truck" from="-E6" to="E5" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_afternoon_delivery" type="delivery" from="-E6" to="E5" begin="32400" end="46800" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_afternoon_bus" type="bus" from="-E6" to="E5" begin="32400" end="46800" probability="0.0025"/> <!-- Dritto -->
 
     <!-- Fuori Punta (13:00-17:00, 46800-61200 secondi) -->
-    <flow id="NS_offpeak_car" type="car" from="-E7" to="E8" begin="46800" end="61200" probability="0.04"/> <!-- Dritto -->
-    <flow id="NS_offpeak_car_left" type="car" from="-E7" to="E5" begin="46800" end="61200" probability="0.02"/> <!-- Sinistra -->
-    <flow id="NS_offpeak_car_right" type="car" from="-E7" to="E6" begin="46800" end="61200" probability="0.02"/> <!-- Destra -->
-    <flow id="NS_offpeak_moto" type="motorcycle" from="-E7" to="E8" begin="46800" end="61200" probability="0.02"/> <!-- Dritto -->
-    <flow id="NS_offpeak_moto_left" type="motorcycle" from="-E7" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="NS_offpeak_moto_right" type="motorcycle" from="-E7" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Destra -->
-    <flow id="NS_offpeak_truck" type="truck" from="-E7" to="E8" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_offpeak_delivery" type="delivery" from="-E7" to="E8" begin="46800" end="61200" probability="0.015"/> <!-- Dritto, aumento per consegne pomeridiane -->
-    <flow id="NS_offpeak_bus" type="bus" from="-E7" to="E8" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_offpeak_car" type="car" from="-E7" to="E8" begin="46800" end="61200" probability="0.02"/> <!-- Dritto -->
+    <flow id="NS_offpeak_car_left" type="car" from="-E7" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Sinistra -->
+    <flow id="NS_offpeak_car_right" type="car" from="-E7" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Destra -->
+    <flow id="NS_offpeak_moto" type="motorcycle" from="-E7" to="E8" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_offpeak_moto_left" type="motorcycle" from="-E7" to="E5" begin="46800" end="61200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="NS_offpeak_moto_right" type="motorcycle" from="-E7" to="E6" begin="46800" end="61200" probability="0.005"/> <!-- Destra -->
+    <flow id="NS_offpeak_truck" type="truck" from="-E7" to="E8" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_offpeak_delivery" type="delivery" from="-E7" to="E8" begin="46800" end="61200" probability="0.0075"/> <!-- Dritto, aumento per consegne pomeridiane -->
+    <flow id="NS_offpeak_bus" type="bus" from="-E7" to="E8" begin="46800" end="61200" probability="0.0025"/> <!-- Dritto -->
 
-    <flow id="SN_offpeak_car" type="car" from="-E8" to="E7" begin="46800" end="61200" probability="0.04"/> <!-- Dritto -->
-    <flow id="SN_offpeak_car_left" type="car" from="-E8" to="E6" begin="46800" end="61200" probability="0.02"/> <!-- Sinistra -->
-    <flow id="SN_offpeak_car_right" type="car" from="-E8" to="E5" begin="46800" end="61200" probability="0.02"/> <!-- Destra -->
-    <flow id="SN_offpeak_moto" type="motorcycle" from="-E8" to="E7" begin="46800" end="61200" probability="0.02"/> <!-- Dritto -->
-    <flow id="SN_offpeak_moto_left" type="motorcycle" from="-E8" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="SN_offpeak_moto_right" type="motorcycle" from="-E8" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Destra -->
-    <flow id="SN_offpeak_truck" type="truck" from="-E8" to="E7" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_offpeak_delivery" type="delivery" from="-E8" to="E7" begin="46800" end="61200" probability="0.015"/> <!-- Dritto -->
-    <flow id="SN_offpeak_bus" type="bus" from="-E8" to="E7" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_offpeak_car" type="car" from="-E8" to="E7" begin="46800" end="61200" probability="0.02"/> <!-- Dritto -->
+    <flow id="SN_offpeak_car_left" type="car" from="-E8" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Sinistra -->
+    <flow id="SN_offpeak_car_right" type="car" from="-E8" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Destra -->
+    <flow id="SN_offpeak_moto" type="motorcycle" from="-E8" to="E7" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_offpeak_moto_left" type="motorcycle" from="-E8" to="E6" begin="46800" end="61200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="SN_offpeak_moto_right" type="motorcycle" from="-E8" to="E5" begin="46800" end="61200" probability="0.005"/> <!-- Destra -->
+    <flow id="SN_offpeak_truck" type="truck" from="-E8" to="E7" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_offpeak_delivery" type="delivery" from="-E8" to="E7" begin="46800" end="61200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="SN_offpeak_bus" type="bus" from="-E8" to="E7" begin="46800" end="61200" probability="0.0025"/> <!-- Dritto -->
 
-    <flow id="EW_offpeak_car" type="car" from="-E5" to="E6" begin="46800" end="61200" probability="0.03"/> <!-- Dritto -->
-    <flow id="EW_offpeak_car_left" type="car" from="-E5" to="E8" begin="46800" end="61200" probability="0.015"/> <!-- Sinistra -->
-    <flow id="EW_offpeak_car_right" type="car" from="-E5" to="E7" begin="46800" end="61200" probability="0.015"/> <!-- Destra -->
-    <flow id="EW_offpeak_moto" type="motorcycle" from="-E5" to="E6" begin="46800" end="61200" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_offpeak_moto_left" type="motorcycle" from="-E5" to="E8" begin="46800" end="61200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="EW_offpeak_moto_right" type="motorcycle" from="-E5" to="E7" begin="46800" end="61200" probability="0.007"/> <!-- Destra -->
-    <flow id="EW_offpeak_truck" type="truck" from="-E5" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="EW_offpeak_delivery" type="delivery" from="-E5" to="E6" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="EW_offpeak_bus" type="bus" from="-E5" to="E6" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_offpeak_car" type="car" from="-E5" to="E6" begin="46800" end="61200" probability="0.015"/> <!-- Dritto -->
+    <flow id="EW_offpeak_car_left" type="car" from="-E5" to="E8" begin="46800" end="61200" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="EW_offpeak_car_right" type="car" from="-E5" to="E7" begin="46800" end="61200" probability="0.0075"/> <!-- Destra -->
+    <flow id="EW_offpeak_moto" type="motorcycle" from="-E5" to="E6" begin="46800" end="61200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_offpeak_moto_left" type="motorcycle" from="-E5" to="E8" begin="46800" end="61200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="EW_offpeak_moto_right" type="motorcycle" from="-E5" to="E7" begin="46800" end="61200" probability="0.0035"/> <!-- Destra -->
+    <flow id="EW_offpeak_truck" type="truck" from="-E5" to="E6" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_offpeak_delivery" type="delivery" from="-E5" to="E6" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="EW_offpeak_bus" type="bus" from="-E5" to="E6" begin="46800" end="61200" probability="0.0025"/> <!-- Dritto -->
 
-    <flow id="WE_offpeak_car" type="car" from="-E6" to="E5" begin="46800" end="61200" probability="0.03"/> <!-- Dritto -->
-    <flow id="WE_offpeak_car_left" type="car" from="-E6" to="E7" begin="46800" end="61200" probability="0.015"/> <!-- Sinistra -->
-    <flow id="WE_offpeak_car_right" type="car" from="-E6" to="E8" begin="46800" end="61200" probability="0.015"/> <!-- Destra -->
-    <flow id="WE_offpeak_moto" type="motorcycle" from="-E6" to="E5" begin="46800" end="61200" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_offpeak_moto_left" type="motorcycle" from="-E6" to="E7" begin="46800" end="61200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="WE_offpeak_moto_right" type="motorcycle" from="-E6" to="E8" begin="46800" end="61200" probability="0.007"/> <!-- Destra -->
-    <flow id="WE_offpeak_truck" type="truck" from="-E6" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="WE_offpeak_delivery" type="delivery" from="-E6" to="E5" begin="46800" end="61200" probability="0.01"/> <!-- Dritto -->
-    <flow id="WE_offpeak_bus" type="bus" from="-E6" to="E5" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_offpeak_car" type="car" from="-E6" to="E5" begin="46800" end="61200" probability="0.015"/> <!-- Dritto -->
+    <flow id="WE_offpeak_car_left" type="car" from="-E6" to="E7" begin="46800" end="61200" probability="0.0075"/> <!-- Sinistra -->
+    <flow id="WE_offpeak_car_right" type="car" from="-E6" to="E8" begin="46800" end="61200" probability="0.0075"/> <!-- Destra -->
+    <flow id="WE_offpeak_moto" type="motorcycle" from="-E6" to="E5" begin="46800" end="61200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_offpeak_moto_left" type="motorcycle" from="-E6" to="E7" begin="46800" end="61200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="WE_offpeak_moto_right" type="motorcycle" from="-E6" to="E8" begin="46800" end="61200" probability="0.0035"/> <!-- Destra -->
+    <flow id="WE_offpeak_truck" type="truck" from="-E6" to="E5" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_offpeak_delivery" type="delivery" from="-E6" to="E5" begin="46800" end="61200" probability="0.005"/> <!-- Dritto -->
+    <flow id="WE_offpeak_bus" type="bus" from="-E6" to="E5" begin="46800" end="61200" probability="0.0025"/> <!-- Dritto -->
 
     <!-- Notte (17:00-0:00 e 0:00-7:00, 61200-86400 e 0-25200 secondi) -->
-    <flow id="NS_night_car" type="car" from="-E7" to="E8" begin="0" end="25200" probability="0.02"/> <!-- Dritto -->
-    <flow id="NS_night_car" type="car" from="-E7" to="E8" begin="61200" end="86400" probability="0.02"/> <!-- Dritto -->
-    <flow id="NS_night_car_left" type="car" from="-E7" to="E5" begin="0" end="25200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="NS_night_car_left" type="car" from="-E7" to="E5" begin="61200" end="86400" probability="0.01"/> <!-- Sinistra -->
-    <flow id="NS_night_car_right" type="car" from="-E7" to="E6" begin="0" end="25200" probability="0.01"/> <!-- Destra -->
-    <flow id="NS_night_car_right" type="car" from="-E7" to="E6" begin="61200" end="86400" probability="0.01"/> <!-- Destra -->
-    <flow id="NS_night_moto" type="motorcycle" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_night_moto" type="motorcycle" from="-E7" to="E8" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_night_moto_left" type="motorcycle" from="-E7" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
-    <flow id="NS_night_moto_left" type="motorcycle" from="-E7" to="E5" begin="61200" end="86400" probability="0.005"/> <!-- Sinistra -->
-    <flow id="NS_night_moto_right" type="motorcycle" from="-E7" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
-    <flow id="NS_night_moto_right" type="motorcycle" from="-E7" to="E6" begin="61200" end="86400" probability="0.005"/> <!-- Destra -->
-    <flow id="NS_night_truck" type="truck" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
-    <flow id="NS_night_truck" type="truck" from="-E7" to="E8" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
-    <flow id="NS_night_delivery" type="delivery" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Dritto, aumento per consegne notturne -->
-    <flow id="NS_night_delivery" type="delivery" from="-E7" to="E8" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
-    <flow id="NS_night_bus" type="bus" from="-E7" to="E8" begin="0" end="25200" probability="0.002"/> <!-- Dritto -->
-    <flow id="NS_night_bus" type="bus" from="-E7" to="E8" begin="61200" end="86400" probability="0.002"/> <!-- Dritto -->
+    <flow id="NS_night_car" type="car" from="-E7" to="E8" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_night_car" type="car" from="-E7" to="E8" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
+    <flow id="NS_night_car_left" type="car" from="-E7" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="NS_night_car_left" type="car" from="-E7" to="E5" begin="61200" end="86400" probability="0.005"/> <!-- Sinistra -->
+    <flow id="NS_night_car_right" type="car" from="-E7" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
+    <flow id="NS_night_car_right" type="car" from="-E7" to="E6" begin="61200" end="86400" probability="0.005"/> <!-- Destra -->
+    <flow id="NS_night_moto" type="motorcycle" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_night_moto" type="motorcycle" from="-E7" to="E8" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_night_moto_left" type="motorcycle" from="-E7" to="E5" begin="0" end="25200" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="NS_night_moto_left" type="motorcycle" from="-E7" to="E5" begin="61200" end="86400" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="NS_night_moto_right" type="motorcycle" from="-E7" to="E6" begin="0" end="25200" probability="0.0025"/> <!-- Destra -->
+    <flow id="NS_night_moto_right" type="motorcycle" from="-E7" to="E6" begin="61200" end="86400" probability="0.0025"/> <!-- Destra -->
+    <flow id="NS_night_truck" type="truck" from="-E7" to="E8" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
+    <flow id="NS_night_truck" type="truck" from="-E7" to="E8" begin="61200" end="86400" probability="0.0025"/> <!-- Dritto -->
+    <flow id="NS_night_delivery" type="delivery" from="-E7" to="E8" begin="0" end="25200" probability="0.005"/> <!-- Dritto, aumento per consegne notturne -->
+    <flow id="NS_night_delivery" type="delivery" from="-E7" to="E8" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
+    <flow id="NS_night_bus" type="bus" from="-E7" to="E8" begin="0" end="25200" probability="0.001"/> <!-- Dritto -->
+    <flow id="NS_night_bus" type="bus" from="-E7" to="E8" begin="61200" end="86400" probability="0.001"/> <!-- Dritto -->
 
-    <flow id="SN_night_car" type="car" from="-E8" to="E7" begin="0" end="25200" probability="0.02"/> <!-- Dritto -->
-    <flow id="SN_night_car" type="car" from="-E8" to="E7" begin="61200" end="86400" probability="0.02"/> <!-- Dritto -->
-    <flow id="SN_night_car_left" type="car" from="-E8" to="E6" begin="0" end="25200" probability="0.01"/> <!-- Sinistra -->
-    <flow id="SN_night_car_left" type="car" from="-E8" to="E6" begin="61200" end="86400" probability="0.01"/> <!-- Sinistra -->
-    <flow id="SN_night_car_right" type="car" from="-E8" to="E5" begin="0" end="25200" probability="0.01"/> <!-- Destra -->
-    <flow id="SN_night_car_right" type="car" from="-E8" to="E5" begin="61200" end="86400" probability="0.01"/> <!-- Destra -->
-    <flow id="SN_night_moto" type="motorcycle" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_night_moto" type="motorcycle" from="-E8" to="E7" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_night_moto_left" type="motorcycle" from="-E8" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
-    <flow id="SN_night_moto_left" type="motorcycle" from="-E8" to="E6" begin="61200" end="86400" probability="0.005"/> <!-- Sinistra -->
-    <flow id="SN_night_moto_right" type="motorcycle" from="-E8" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
-    <flow id="SN_night_moto_right" type="motorcycle" from="-E8" to="E5" begin="61200" end="86400" probability="0.005"/> <!-- Destra -->
-    <flow id="SN_night_truck" type="truck" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
-    <flow id="SN_night_truck" type="truck" from="-E8" to="E7" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
-    <flow id="SN_night_delivery" type="delivery" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_night_delivery" type="delivery" from="-E8" to="E7" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
-    <flow id="SN_night_bus" type="bus" from="-E8" to="E7" begin="0" end="25200" probability="0.002"/> <!-- Dritto -->
-    <flow id="SN_night_bus" type="bus" from="-E8" to="E7" begin="61200" end="86400" probability="0.002"/> <!-- Dritto -->
+    <flow id="SN_night_car" type="car" from="-E8" to="E7" begin="0" end="25200" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_night_car" type="car" from="-E8" to="E7" begin="61200" end="86400" probability="0.01"/> <!-- Dritto -->
+    <flow id="SN_night_car_left" type="car" from="-E8" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Sinistra -->
+    <flow id="SN_night_car_left" type="car" from="-E8" to="E6" begin="61200" end="86400" probability="0.005"/> <!-- Sinistra -->
+    <flow id="SN_night_car_right" type="car" from="-E8" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Destra -->
+    <flow id="SN_night_car_right" type="car" from="-E8" to="E5" begin="61200" end="86400" probability="0.005"/> <!-- Destra -->
+    <flow id="SN_night_moto" type="motorcycle" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_night_moto" type="motorcycle" from="-E8" to="E7" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_night_moto_left" type="motorcycle" from="-E8" to="E6" begin="0" end="25200" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="SN_night_moto_left" type="motorcycle" from="-E8" to="E6" begin="61200" end="86400" probability="0.0025"/> <!-- Sinistra -->
+    <flow id="SN_night_moto_right" type="motorcycle" from="-E8" to="E5" begin="0" end="25200" probability="0.0025"/> <!-- Destra -->
+    <flow id="SN_night_moto_right" type="motorcycle" from="-E8" to="E5" begin="61200" end="86400" probability="0.0025"/> <!-- Destra -->
+    <flow id="SN_night_truck" type="truck" from="-E8" to="E7" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
+    <flow id="SN_night_truck" type="truck" from="-E8" to="E7" begin="61200" end="86400" probability="0.0025"/> <!-- Dritto -->
+    <flow id="SN_night_delivery" type="delivery" from="-E8" to="E7" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_night_delivery" type="delivery" from="-E8" to="E7" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
+    <flow id="SN_night_bus" type="bus" from="-E8" to="E7" begin="0" end="25200" probability="0.001"/> <!-- Dritto -->
+    <flow id="SN_night_bus" type="bus" from="-E8" to="E7" begin="61200" end="86400" probability="0.001"/> <!-- Dritto -->
 
-    <flow id="EW_night_car" type="car" from="-E5" to="E6" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_night_car" type="car" from="-E5" to="E6" begin="61200" end="86400" probability="0.015"/> <!-- Dritto -->
-    <flow id="EW_night_car_left" type="car" from="-E5" to="E8" begin="0" end="25200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="EW_night_car_left" type="car" from="-E5" to="E8" begin="61200" end="86400" probability="0.007"/> <!-- Sinistra -->
-    <flow id="EW_night_car_right" type="car" from="-E5" to="E7" begin="0" end="25200" probability="0.007"/> <!-- Destra -->
-    <flow id="EW_night_car_right" type="car" from="-E5" to="E7" begin="61200" end="86400" probability="0.007"/> <!-- Destra -->
-    <flow id="EW_night_moto" type="motorcycle" from="-E5" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_night_moto" type="motorcycle" from="-E5" to="E6" begin="61200" end="86400" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_night_moto_left" type="motorcycle" from="-E5" to="E8" begin="0" end="25200" probability="0.003"/> <!-- Sinistra -->
-    <flow id="EW_night_moto_left" type="motorcycle" from="-E5" to="E8" begin="61200" end="86400" probability="0.003"/> <!-- Sinistra -->
-    <flow id="EW_night_moto_right" type="motorcycle" from="-E5" to="E7" begin="0" end="25200" probability="0.003"/> <!-- Destra -->
-    <flow id="EW_night_moto_right" type="motorcycle" from="-E5" to="E7" begin="61200" end="86400" probability="0.003"/> <!-- Destra -->
-    <flow id="EW_night_truck" type="truck" from="-E5" to="E6" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
-    <flow id="EW_night_truck" type="truck" from="-E5" to="E6" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
-    <flow id="EW_night_delivery" type="delivery" from="-E5" to="E6" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_night_delivery" type="delivery" from="-E5" to="E6" begin="61200" end="86400" probability="0.007"/> <!-- Dritto -->
-    <flow id="EW_night_bus" type="bus" from="-E5" to="E6" begin="0" end="25200" probability="0.002"/> <!-- Dritto -->
-    <flow id="EW_night_bus" type="bus" from="-E5" to="E6" begin="61200" end="86400" probability="0.002"/> <!-- Dritto -->
+    <flow id="EW_night_car" type="car" from="-E5" to="E6" begin="0" end="25200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_night_car" type="car" from="-E5" to="E6" begin="61200" end="86400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="EW_night_car_left" type="car" from="-E5" to="E8" begin="0" end="25200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="EW_night_car_left" type="car" from="-E5" to="E8" begin="61200" end="86400" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="EW_night_car_right" type="car" from="-E5" to="E7" begin="0" end="25200" probability="0.0035"/> <!-- Destra -->
+    <flow id="EW_night_car_right" type="car" from="-E5" to="E7" begin="61200" end="86400" probability="0.0035"/> <!-- Destra -->
+    <flow id="EW_night_moto" type="motorcycle" from="-E5" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_night_moto" type="motorcycle" from="-E5" to="E6" begin="61200" end="86400" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_night_moto_left" type="motorcycle" from="-E5" to="E8" begin="0" end="25200" probability="0.0015"/> <!-- Sinistra -->
+    <flow id="EW_night_moto_left" type="motorcycle" from="-E5" to="E8" begin="61200" end="86400" probability="0.0015"/> <!-- Sinistra -->
+    <flow id="EW_night_moto_right" type="motorcycle" from="-E5" to="E7" begin="0" end="25200" probability="0.0015"/> <!-- Destra -->
+    <flow id="EW_night_moto_right" type="motorcycle" from="-E5" to="E7" begin="61200" end="86400" probability="0.0015"/> <!-- Destra -->
+    <flow id="EW_night_truck" type="truck" from="-E5" to="E6" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
+    <flow id="EW_night_truck" type="truck" from="-E5" to="E6" begin="61200" end="86400" probability="0.0025"/> <!-- Dritto -->
+    <flow id="EW_night_delivery" type="delivery" from="-E5" to="E6" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_night_delivery" type="delivery" from="-E5" to="E6" begin="61200" end="86400" probability="0.0035"/> <!-- Dritto -->
+    <flow id="EW_night_bus" type="bus" from="-E5" to="E6" begin="0" end="25200" probability="0.001"/> <!-- Dritto -->
+    <flow id="EW_night_bus" type="bus" from="-E5" to="E6" begin="61200" end="86400" probability="0.001"/> <!-- Dritto -->
 
-    <flow id="WE_night_car" type="car" from="-E6" to="E5" begin="0" end="25200" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_night_car" type="car" from="-E6" to="E5" begin="61200" end="86400" probability="0.015"/> <!-- Dritto -->
-    <flow id="WE_night_car_left" type="car" from="-E6" to="E7" begin="0" end="25200" probability="0.007"/> <!-- Sinistra -->
-    <flow id="WE_night_car_left" type="car" from="-E6" to="E7" begin="61200" end="86400" probability="0.007"/> <!-- Sinistra -->
-    <flow id="WE_night_car_right" type="car" from="-E6" to="E8" begin="0" end="25200" probability="0.007"/> <!-- Destra -->
-    <flow id="WE_night_car_right" type="car" from="-E6" to="E8" begin="61200" end="86400" probability="0.007"/> <!-- Destra -->
-    <flow id="WE_night_moto" type="motorcycle" from="-E6" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_night_moto" type="motorcycle" from="-E6" to="E5" begin="61200" end="86400" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_night_moto_left" type="motorcycle" from="-E6" to="E7" begin="0" end="25200" probability="0.003"/> <!-- Sinistra -->
-    <flow id="WE_night_moto_left" type="motorcycle" from="-E6" to="E7" begin="61200" end="86400" probability="0.003"/> <!-- Sinistra -->
-    <flow id="WE_night_moto_right" type="motorcycle" from="-E6" to="E8" begin="0" end="25200" probability="0.003"/> <!-- Destra -->
-    <flow id="WE_night_moto_right" type="motorcycle" from="-E6" to="E8" begin="61200" end="86400" probability="0.003"/> <!-- Destra -->
-    <flow id="WE_night_truck" type="truck" from="-E6" to="E5" begin="0" end="25200" probability="0.005"/> <!-- Dritto -->
-    <flow id="WE_night_truck" type="truck" from="-E6" to="E5" begin="61200" end="86400" probability="0.005"/> <!-- Dritto -->
-    <flow id="WE_night_delivery" type="delivery" from="-E6" to="E5" begin="0" end="25200" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_night_delivery" type="delivery" from="-E6" to="E5" begin="61200" end="86400" probability="0.007"/> <!-- Dritto -->
-    <flow id="WE_night_bus" type="bus" from="-E6" to="E5" begin="0" end="25200" probability="0.002"/> <!-- Dritto -->
-    <flow id="WE_night_bus" type="bus" from="-E6" to="E5" begin="61200" end="86400" probability="0.002"/> <!-- Dritto -->
+    <flow id="WE_night_car" type="car" from="-E6" to="E5" begin="0" end="25200" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_night_car" type="car" from="-E6" to="E5" begin="61200" end="86400" probability="0.0075"/> <!-- Dritto -->
+    <flow id="WE_night_car_left" type="car" from="-E6" to="E7" begin="0" end="25200" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="WE_night_car_left" type="car" from="-E6" to="E7" begin="61200" end="86400" probability="0.0035"/> <!-- Sinistra -->
+    <flow id="WE_night_car_right" type="car" from="-E6" to="E8" begin="0" end="25200" probability="0.0035"/> <!-- Destra -->
+    <flow id="WE_night_car_right" type="car" from="-E6" to="E8" begin="61200" end="86400" probability="0.0035"/> <!-- Destra -->
+    <flow id="WE_night_moto" type="motorcycle" from="-E6" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_night_moto" type="motorcycle" from="-E6" to="E5" begin="61200" end="86400" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_night_moto_left" type="motorcycle" from="-E6" to="E7" begin="0" end="25200" probability="0.0015"/> <!-- Sinistra -->
+    <flow id="WE_night_moto_left" type="motorcycle" from="-E6" to="E7" begin="61200" end="86400" probability="0.0015"/> <!-- Sinistra -->
+    <flow id="WE_night_moto_right" type="motorcycle" from="-E6" to="E8" begin="0" end="25200" probability="0.0015"/> <!-- Destra -->
+    <flow id="WE_night_moto_right" type="motorcycle" from="-E6" to="E8" begin="61200" end="86400" probability="0.0015"/> <!-- Destra -->
+    <flow id="WE_night_truck" type="truck" from="-E6" to="E5" begin="0" end="25200" probability="0.0025"/> <!-- Dritto -->
+    <flow id="WE_night_truck" type="truck" from="-E6" to="E5" begin="61200" end="86400" probability="0.0025"/> <!-- Dritto -->
+    <flow id="WE_night_delivery" type="delivery" from="-E6" to="E5" begin="0" end="25200" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_night_delivery" type="delivery" from="-E6" to="E5" begin="61200" end="86400" probability="0.0035"/> <!-- Dritto -->
+    <flow id="WE_night_bus" type="bus" from="-E6" to="E5" begin="0" end="25200" probability="0.001"/> <!-- Dritto -->
+    <flow id="WE_night_bus" type="bus" from="-E6" to="E5" begin="61200" end="86400" probability="0.001"/> <!-- Dritto -->
 </routes>
