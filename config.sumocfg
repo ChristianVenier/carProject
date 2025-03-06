@@ -14,5 +14,5 @@
         <tripinfo-output value="statistiche/tripinfo.xml"/>
         <vehroute-output value="statistiche/vehroute.xml"/>
     </output>
-    <gui-settings-file value="viewport.view.xml"/>
+    <gui-settings-file value="view.port.xml"/>
 </configuration>

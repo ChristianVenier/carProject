@@ -9,9 +9,7 @@
         <!-- Argomentazione: Autisti di trasporti pesanti sono cauti (sigma 0.3) per la mole del veicolo, con accelerazione lenta. -->
     <vType id="delivery" vClass="delivery" length="7.0" maxSpeed="12.50" accel="2.0" decel="3.5" sigma="0.4" color="green"/>
         <!-- Argomentazione: Corrieri hanno un comportamento intermedio (sigma 0.4), con accelerazione moderata per consegne rapide. -->
-    <vType id="bus" vClass="bus" length="12.0" maxSpeed="10.00" accel="1.2" decel="2.8" sigma="0.2" color="orange">
-    <param key="imgFile" value="images\bus.png"/>
-    </vType>
+    <vType id="bus" vClass="bus" length="12.0" maxSpeed="10.00" accel="1.2" decel="2.8" sigma="0.2" color="orange"/>
         <!-- Argomentazione: Autisti di autobus sono molto prudenti (sigma 0.2) per i passeggeri, con accelerazione lenta e fermate frequenti. -->
 
     <!-- Flussi di Traffico -->
