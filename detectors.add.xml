@@ -1,0 +1,6 @@
+<additional>
+    <laneAreaDetector id="det_-E5" lanes="-E5_0" pos="20" length="10" freq="1" file="statistiche/detector_output.xml"/>
+    <laneAreaDetector id="det_-E6" lanes="-E6_0" pos="20" length="10" freq="1" file="statistiche/detector_output.xml"/>
+    <laneAreaDetector id="det_-E7" lanes="-E7_0" pos="20" length="10" freq="1" file="statistiche/detector_output.xml"/>
+    <laneAreaDetector id="det_-E8" lanes="-E8_0" pos="20" length="10" freq="1" file="statistiche/detector_output.xml"/>
+</additional>
