@@ -1,5 +1,6 @@
 import traci
 import time
+from creaDatabase import *
 
 def main():
     try:
@@ -38,3 +39,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    creaDatabase()
