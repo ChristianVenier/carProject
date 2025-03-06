@@ -1042,5 +1042,5 @@
     </scheme>
     <viewport zoom="107.60" x="8.61" y="102.07" angle="0.00"/>
     <delay value="100.00"/>
-    <decal file="C:\Users\Soufian Markouni\Desktop\Incrocio\images\green.jpg" screenRelative="0" centerX="0.00" centerY="100.00" centerZ="0.00" width="211.20" height="211.20" altitude="0.00" rotation="0.00" tilt="0.00" roll="0.00" layer="0.00"/>
+    <decal file="images\green.jpg" screenRelative="0" centerX="0.00" centerY="100.00" centerZ="0.00" width="211.20" height="211.20" altitude="0.00" rotation="0.00" tilt="0.00" roll="0.00" layer="0.00"/>
 </viewsettings>
