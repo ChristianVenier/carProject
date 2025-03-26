@@ -196,7 +196,7 @@ def main():
             "--delay", "100",
             "--gui-settings-file", "app/view.port.xml",
             "--random",
-            "--seed", str(random_seed)
+            "--seed", str(1742988170)
         ])
         print("Simulazione avviata.")
         
