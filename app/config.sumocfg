@@ -1,0 +1,26 @@
+<configuration>
+    <input>
+        <net-file value="cross.net.xml"/>
+        <route-files value="vehicles.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="86400"/>
+        <time-to-teleport value="-1"/>
+    </time>
+    <output>
+        <summary-output value="statistiche/summary.xml"/>
+        <queue-output value="statistiche/queue.xml"/>
+        <tripinfo-output value="statistiche/tripinfo.xml"/>
+        <vehroute-output value="statistiche/vehroute.xml"/>
+
+    </output>
+    <processing>
+        <collision.action value="warn"/>    
+        <collision.check-junctions value="true"/>
+        <collision.stoptime value="1800"/>
+    </processing>
+    <report>
+        <no-warnings value="true"/> 
+    </report>
+</configuration>
