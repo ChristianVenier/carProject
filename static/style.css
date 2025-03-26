@@ -1,0 +1,140 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Layout generale */
+  body {
+    background-image: url(Screenshot\ 2025-03-20\ 155304.png);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #003366;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    color: white;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #ffcc00;
+    transition: color 0.3s;
+  }
+  
+  /* Contenuto principale */
+  main.content {
+    margin-left: 270px;
+    padding: 20px;
+    z-index: 10;
+    position: relative;
+    width: calc(100% - 270px);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #003366;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Effetto fade-in per il titolo */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Contenitore IFRAME */
+  .chart-container {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 48%;
+    margin-right: 4%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    
+    background: white;  /* Sfondo bianco */
+    padding: 15px;  /* Spazio interno per non attaccare il grafico ai bordi */
+    border-radius: 10px;  /* Angoli arrotondati */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+  }
+  
+  
+  iframe, canvas {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Messaggio di benvenuto */
+  .welcome-message {
+    text-align: center;
+    background: linear-gradient(to right, #003366, #0055aa);
+    color: white;
+    /* padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px); */
+  }
+  
+  
+  

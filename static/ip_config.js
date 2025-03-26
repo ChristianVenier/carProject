@@ -1,0 +1,1 @@
+const SERVER_IP = "10.0.20.48";
