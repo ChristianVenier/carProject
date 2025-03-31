@@ -1,0 +1,89 @@
+
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: carproject_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: project
+      MYSQL_DATABASE: simulazione
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - my_network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: carproject_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: project
+    ports:
+      - "8080:80"
+    networks:
+      - my_network
+ 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: carproject_grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:    
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
+      - GF_SERVER_ROOT_URL=http://0.0.0.0:3000
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_SECURITY_ALLOW_EMBEDDING_FROM_ANYWHERE=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      - GF_SERVER_DOMAIN=*
+      - GF_SERVER_HTTP_ADDR=0.0.0.0
+      - GF_AUTH_DISABLE_LOGIN_FORM=false
+      - GF_AUTH_BASIC_ENABLED=true
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - my_network
+    depends_on:
+      - mysql
+
+  web:
+    image: nginx:alpine
+    container_name: carproject_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./static:/usr/share/nginx/html
+    networks:
+      - my_network
+
+  python:
+    build: .
+    volumes:
+      - ./app:/app
+    depends_on:
+      - mysql
+      - grafana
+    command: python /app/grafana_query.py
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  grafana_data:

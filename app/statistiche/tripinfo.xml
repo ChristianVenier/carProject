@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-03-31 16:29:48 by Eclipse SUMO GUI Version 1.22.0
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="app/cross.net.xml"/>
+        <route-files value="app/vehicles.rou.xml"/>
+    </input>
+
+    <output>
+        <queue-output value="app/statistiche/queue.xml"/>
+        <summary-output value="app/statistiche/summary.xml"/>
+        <tripinfo-output value="app/statistiche/tripinfo.xml"/>
+        <vehroute-output value="app/statistiche/vehroute.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="86400"/>
+    </time>
+
+    <processing>
+        <collision.action value="warn"/>
+        <collision.stoptime value="1800"/>
+        <collision.check-junctions value="true"/>
+        <time-to-teleport value="-1"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="57452"/>
+    </traci_server>
+
+    <random_number>
+        <random value="true"/>
+        <seed value="1742988170"/>
+    </random_number>
+
+    <gui_only>
+        <gui-settings-file value="app/view.port.xml"/>
+        <start value="true"/>
+        <delay value="100"/>
+    </gui_only>
+
+</sumoConfiguration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="SN_wakeup_car.0" depart="3.00" departLane="-E8_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="22.00" arrivalLane="E7_1" arrivalPos="89.60" arrivalSpeed="13.63" duration="19.00" routeLength="195.40" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="4.07" rerouteNo="0" devices="vehroute_SN_wakeup_car.0 tripinfo_SN_wakeup_car.0 routing_SN_wakeup_car.0" vType="car" speedFactor="1.07" vaporized=""/>
+    <tripinfo id="NS_wakeup_car.0" depart="4.00" departLane="-E7_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="23.00" arrivalLane="E8_1" arrivalPos="89.60" arrivalSpeed="13.63" duration="19.00" routeLength="195.40" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="4.07" rerouteNo="0" devices="vehroute_NS_wakeup_car.0 tripinfo_NS_wakeup_car.0 routing_NS_wakeup_car.0" vType="car" speedFactor="1.05" vaporized=""/>
+    <tripinfo id="SN_wakeup_car.1" depart="13.00" departLane="-E8_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="31.00" arrivalLane="E7_1" arrivalPos="89.60" arrivalSpeed="13.02" duration="18.00" routeLength="195.40" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="3.71" rerouteNo="0" devices="vehroute_SN_wakeup_car.1 tripinfo_SN_wakeup_car.1 routing_SN_wakeup_car.1" vType="car" speedFactor="1.03" vaporized=""/>
+    <tripinfo id="EW_wakeup_car.0" depart="59.00" departLane="-E5_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="78.00" arrivalLane="E6_1" arrivalPos="89.60" arrivalSpeed="13.63" duration="19.00" routeLength="195.40" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="4.07" rerouteNo="0" devices="vehroute_EW_wakeup_car.0 tripinfo_EW_wakeup_car.0 routing_EW_wakeup_car.0" vType="car" speedFactor="1.03" vaporized=""/>
+    <tripinfo id="SN_wakeup_car.2" depart="34.00" departLane="-E8_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="101.00" arrivalLane="E7_1" arrivalPos="89.60" arrivalSpeed="12.90" duration="67.00" routeLength="195.40" waitingTime="42.00" waitingCount="1" stopTime="0.00" timeLoss="52.26" rerouteNo="0" devices="vehroute_SN_wakeup_car.2 tripinfo_SN_wakeup_car.2 routing_SN_wakeup_car.2" vType="car" speedFactor="0.96" vaporized=""/>
+    <tripinfo id="SN_wakeup_car.3" depart="82.00" departLane="-E8_1" departPos="4.60" departSpeed="0.00" departDelay="0.00" arrival="101.00" arrivalLane="E7_2" arrivalPos="89.60" arrivalSpeed="13.63" duration="19.00" routeLength="195.40" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="4.74" rerouteNo="0" devices="vehroute_SN_wakeup_car.3 tripinfo_SN_wakeup_car.3 routing_SN_wakeup_car.3" vType="car" speedFactor="1.07" vaporized=""/>
+</tripinfos>
