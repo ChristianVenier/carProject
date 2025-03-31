@@ -258,12 +258,12 @@ def select_best_seeds():
         seeds.append(seed)
 
     # Calcola la distribuzione normale dei risultati (basata sul numero di collisioni)
-    mean_collisions = np.mean(results)
-    std_collisions = np.std(results)
-    if std_collisions == 0:
+    mean_collisions = np.mean(results) # Media delle collisioni Aritmetica
+    std_collisions = np.std(results) # Deviazione standard delle collisioni
+    if std_collisions == 0: 
         std_collisions = 1e-10  # Evita divisione per zero
 
-    # Calcola il percentile 25 (prendi il 25% migliore, cioè i casi con meno collisioni)
+    # Calcola il percentile 25 (prendi il 25% migliore, cioè i casi con meno collisioni) 
     threshold = norm.ppf(0.25, loc=mean_collisions, scale=std_collisions)
     
     # Seleziona i casi migliori (quelli con collisioni inferiori al percentile 25)
