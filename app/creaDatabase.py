@@ -1,8 +1,9 @@
-import xml.etree.ElementTree as Et
+from lxml import etree as Et
 import mysql.connector
 from mysql.connector import Error
 import time
 
+timeAccident = []
 tabelle = [["veicoliSicuri", "statisticheSicure", "incidentiSicuri"], ["veicoliRischiosi", "statisticheRischiose", "incidentiRischiosi"]]
 
 def connect_to_database():
@@ -32,20 +33,46 @@ def updateLogs():
     except Error as e:
         print(f"Errore durante l'aggiornamento del log: {e}")
         
-def updateAccidents(scelta, current_time):
-    global connection
-    scelta = int(scelta)
+def updateAccidents(accidents):
+    global timeAccident
+    for veicolo, data in accidents.items():
+        timeAccident.append(data[0])
+
+def secondi_to_time(secondi):
+    """Converte secondi in formato HH:MM:SS."""
+    ore = secondi // 3600
+    minuti = (secondi % 3600) // 60
+    secondi_rimanenti = secondi % 60
+    return f"{ore:02}:{minuti:02}:{secondi_rimanenti:02}"
+
+def insertAccidents(connection, accident, scelta):
     try:
         cursor = connection.cursor()
-        insert_query = f"INSERT INTO {tabelle[scelta][2]} (numeroIncidenti, tempo) VALUES (%s, %s)"
-        data = (1 , current_time)
-        cursor.execute(insert_query, data)
+        accident_time = secondi_to_time(int(float(accident)))  # Formato HH:MM:SS
+        
+        # Controlla se esiste già un record con quel tempo
+        select_query = f"SELECT numeroIncidenti FROM {tabelle[scelta][2]} WHERE tempo = %s"
+        cursor.execute(select_query, (accident_time,))
+        result = cursor.fetchone()
+        
+        if result:
+            # Aggiorna incrementando il numeroIncidenti
+            new_count = result[0] + 1
+            update_query = f"UPDATE {tabelle[scelta][2]} SET numeroIncidenti = %s WHERE tempo = %s"
+            cursor.execute(update_query, (new_count, accident_time))
+        else:
+            # Inserisce nuovo record
+            insert_query = f"INSERT INTO {tabelle[scelta][2]} (numeroIncidenti, tempo) VALUES (%s, %s)"
+            cursor.execute(insert_query, (1, accident_time))
+        
         connection.commit()
-        print("Dati inseriti con successo nella tabella incidenti")
+        print("Dati incidenti aggiornati con successo!")
+        
     except Error as e:
-        print(f"Errore durante l'inserimento nella tabella incidenti: {e}")
+        print(f"Errore durante l'inserimento o aggiornamento: {e}")
     finally:
         cursor.close()
+
 
 def insert_dataVehRoute(raggruppa, scelta):
     global connection
@@ -99,13 +126,16 @@ def svuota_file_xml(file_path):
         print(f"Errore durante lo svuotamento del file: {e}")
 
 def creaDatabase(scelta):
+    global timeaccident
     global connection
     print("Ciao sono dentro crea database")
-    file=Et.parse("app/statistiche/vehroute.xml")
+    parser = Et.XMLParser(recover=True)
+    file=Et.parse("app/statistiche/vehroute.xml", parser=parser)
     lista=file.getroot()
     connection=connect_to_database()
     trunkTables(scelta)
     updateLogs()
+    
     if connection is None:
         return
 
@@ -114,11 +144,14 @@ def creaDatabase(scelta):
         partenza=elemento.get("depart")
         arrivo=elemento.get("arrival")
         percorso=elemento.find("route")
-        percorso=percorso.get('edges')
+        if percorso is not None:
+            edges = percorso.get('edges')
+        else:
+            print("⚠️ percorso è None. Controlla il dato passato.")
+       
 
-        InFin=percorso.split()
+        InFin=edges.split()
         durata=int(float(arrivo)-float(partenza))
-
 
         raggruppa={"tipo":tipo,"durata":durata,"inizio":InFin[0],"fine":InFin[1], "partenza":partenza, "arrivo":arrivo}
         insert_dataVehRoute(raggruppa, scelta)
@@ -126,7 +159,7 @@ def creaDatabase(scelta):
     # Svuota il file vehroute.xml dopo averlo letto
     svuota_file_xml("app/statistiche/vehroute.xml")
         
-    file=Et.parse("app/statistiche/summary.xml")
+    file=Et.parse("app/statistiche/summary.xml", parser=parser)
     lista=file.getroot()
     for elemento in lista.findall('step'):
         tempo=float(elemento.get('time'))
@@ -136,12 +169,13 @@ def creaDatabase(scelta):
             mFermo=elemento.get("meanWaitingTime")
             raggruppa={"tempo":tempo,"nMacchine":nMacchine,"mDurata":mDurata,"mFermo":mFermo}
             insert_dataSummary(raggruppa, scelta)
-    
+    if timeAccident:
+        for elemento in timeAccident:
+            insertAccidents(connection, elemento, scelta)
+            
     # Svuota il file summary.xml dopo averlo letto
     svuota_file_xml("app/statistiche/summary.xml")
     
     if connection.is_connected():
         connection.close()
         print("Connessione al database chiusa.")
-
-creaDatabase(1)

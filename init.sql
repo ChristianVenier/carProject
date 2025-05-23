@@ -17,12 +17,14 @@ CREATE TABLE IF NOT EXISTS `veicoliSicuri` (
 
 -- Tabella IncidentiSicuri
 CREATE TABLE IF NOT EXISTS `incidentiSicuri` (
-    `numeroIncidenti` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `tempo` VARCHAR(255) NOT NULL
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `numeroIncidenti` BIGINT NOT NULL,
+    `tempo` TIME NOT NULL
 );
 
 -- Tabella statisticheSicure
 CREATE TABLE IF NOT EXISTS `statisticheSicure` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `tempo` BIGINT NOT NULL,
     `nMacchine` BIGINT NOT NULL,
     `mDurata` BIGINT NOT NULL,
@@ -42,12 +44,14 @@ CREATE TABLE IF NOT EXISTS `veicoliRischiosi` (
 
 -- Tabella IncidentiRischiosi
 CREATE TABLE IF NOT EXISTS `incidentiRischiosi` (
-    `numeroIncidenti` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `tempo` VARCHAR(255) NOT NULL
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `numeroIncidenti` BIGINT NOT NULL,
+    `tempo` TIME NOT NULL
 );
 
 -- Tabella statisticheRischiosi
 CREATE TABLE IF NOT EXISTS `statisticheRischiose` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `tempo` BIGINT NOT NULL,
     `nMacchine` BIGINT NOT NULL,
     `mDurata` BIGINT NOT NULL,
@@ -59,8 +63,3 @@ CREATE TABLE IF NOT EXISTS `logs` (
     `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `time` TIMESTAMP NOT NULL
 );
-
-
-
-
-

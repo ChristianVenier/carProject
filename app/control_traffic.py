@@ -2,7 +2,7 @@ import traci
 import time
 from collections import defaultdict
 from get_ip import *
-# from creaDatabase import *
+from creaDatabase import creaDatabase, updateAccidents
 
 JUNCTION_INTERNAL_PREFIX = ":J4_"
 
@@ -228,8 +228,13 @@ def main():
                 continue
         
         print("Simulazione completata.")
+        updateAccidents(accidents)
+        creaDatabase(int(program_traffic_light))
         traci.close()
     except Exception as e:
+        updateAccidents(accidents)
+        creaDatabase(int(program_traffic_light))
+        
         print(f"Errore generale: {e}")
     finally:
         if traci.isLoaded():

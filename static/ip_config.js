@@ -1,1 +1,1 @@
-const SERVER_IP = "10.0.20.48";
+const SERVER_IP = "192.168.178.185";
